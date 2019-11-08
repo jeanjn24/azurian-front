@@ -1,0 +1,88 @@
+<div class="example-header mat-elevation-z8">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Escriba algo para filtrar">
+  </mat-form-field>
+</div>
+<br>
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+    
+    <ng-container matColumnDef="Agent Number">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nro Cliente </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.agent_number}} </mat-cell>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="City">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.city}} </mat-cell>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="Working Area">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Area de Trabajo </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.working_area}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pais </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.country}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Grade">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Grado </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.grade}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Initial Founds">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Fondo Inicial </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.initial_founds}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Found Limit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Limite en Cuenta </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.found_limit}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Mensual Founds">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Fondo Mes </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.mensual_founds}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Found Extra Limit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Fondo Extra </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.found_extra_limit}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone No">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Telf </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.phone_no}} </mat-cell>
+    </ng-container>
+
+
+
+    
+
+   
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" [pageSize]="25" [showFirstLastButtons]="true"></mat-paginator>
+</div>
+
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div *ngFor='let article of articles'>
+    
+    <h2>{{ article.title  }}</h2>
+    <p>{{ article.author }}</p>
+    <p>{{ article.created_at }}</p>
+
+
+</div>
+
+
+
